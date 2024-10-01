@@ -1,0 +1,9 @@
+execution:
+  config:
+    image_pull_policy: "Always"
+
+resources:
+  io_manager:
+    config:
+      gcs_bucket: "dagster-test"
+      gcs_prefix: "dagster-k8s"
