@@ -3,7 +3,7 @@ from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 import requests
 
-from dagster import In, config_from_files, file_relative_path, graph, op, repository
+from dagster import In, config_from_files, file_relative_path, graph, op, repository, ScheduleDefinition
 from dagster_gcp.gcs.io_manager import gcs_pickle_io_manager
 from dagster_gcp.gcs.resources import gcs_resource
 from dagster_k8s import k8s_job_executor
@@ -70,7 +70,9 @@ pod_per_op_job = example_graph.to_job(
     ),
 )
 
+fivemin_schedule = ScheduleDefinition(job=pod_per_op_job, cron_schedule="*/5 * * * *")
+
 
 @repository
 def example_repo():
-    return [local_job, pod_per_op_job]
+    return [local_job, pod_per_op_job, fivemin_schedule]
