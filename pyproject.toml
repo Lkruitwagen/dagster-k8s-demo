@@ -27,6 +27,7 @@ dependencies = [
     "dagster",
     "dagster-k8s",
     "dagster-gcp",
+    "dagster-postgres",
     "slack_sdk",
     "requests"
 ]
