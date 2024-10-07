@@ -1,4 +1,7 @@
 # dagster-k8s-demo
+
+> What do you call a magician who has lost their magic? Ian.
+
 This demo sends a dad joke to a slack channel of your choice every 5 minutes.
 It is also a complete example for deploying a Dagster orchestration suite via a kubernetes (k8s) cluster on Google's Kubernetes Engine. 
 This is a starting point for building a full back-end data engineering infrastructure, using Dagster as the orchestration framework, control entrypoint, and UI.
@@ -11,7 +14,7 @@ This code accompanies the blog post here (coming soon), which describes in detai
 ## Development - user code
 
 The user code in this repo is a simple dagsterified computation graph, representing any abstract workflow you choose.
-In this case it retrieves a dad joke from [http://icanhazdadjoke.com] and forwards it to a slack channel.
+In this case it retrieves a dad joke from http://icanhazdadjoke.com and forwards it to a slack channel.
 The user must install the slackbot to this slack channel.
 
 For local development, this repo can be installed with:
@@ -42,5 +45,5 @@ Here are the quick instructions:
 8. copy `helm-template.yaml` to `helm.yaml` and add your postgresql instance private ip address, your database name, and user code container address.
 9. deploy this helm chart to your cluster with `helm upgrade --install dagster dagster/dagster -f helm.yaml`
 10. use `kubectl port-forward <webserved-pod-name> 8080:80` to inspect your orchestration and deploy the schedule
-11. watch the dad jokes roll in, chuckling in disgust
+11. watch the dad jokes roll in, chuckle in disgust
 
