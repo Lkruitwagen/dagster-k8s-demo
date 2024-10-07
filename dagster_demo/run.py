@@ -70,7 +70,10 @@ pod_per_op_job = example_graph.to_job(
     ),
 )
 
-fivemin_schedule = ScheduleDefinition(job=pod_per_op_job, cron_schedule="*/5 * * * *")
+fivemin_schedule = ScheduleDefinition(
+    job=pod_per_op_job, 
+    cron_schedule="*/5 * * * *"
+)
 
 
 defs = Definitions(
